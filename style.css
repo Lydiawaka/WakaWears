@@ -249,58 +249,42 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-/* media query for menu */
-@media only screen and (max-width: 800px) {
-    nav ul {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background: #333;
-        width: 100%;
-        overflow: hidden;
-        transition: max-height 0.5s;
+.menu-icon {
+        width: 28px;
+        margin-left: 20px;
+        display: none;
     }
-    nav ul li {
+}
+
+/* media query for less than 600 screen size */
+
+
+/* media query for menu  */
+@media only screen and (max-width: 800px){
+
+    nav ul{
+        
+        font-size: 12px;
+    }
+    nav ul li{
         display: block;
         margin-right: 50px;
         margin-top: 10px;
         margin-bottom: 10px;
     }
-    nav ul li a {
+    nav ul li a{
         color: #fff;
     }
-    .menu-icon {
-        display: block;
-        cursor: pointer;
-    }
 }
 
-/* media query for less than 600 screen size */
-@media only screen and (max-width: 600px) {
-    .row {
+/* media querry for less than 600 screen size */
+@media only screen and (max-width: 600px){
+    .row{
         text-align: center;
     }
-    .col-2, .col-3, .col-4 {
+    .col-2, .col-3, .col-4{
         flex-basis: 100%;
     }
-}
 
-/* Hide menu icon for screen sizes larger than 800px */
-@media only screen and (min-width: 801px) {
-    .menu-icon {
-        display: none;
-    }
 }
-
-.menu-icon {
-    /* ... existing styles ... */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.menu-icon:hover {
-    transform: scale(1.1);
-    opacity: 0.8;
-}
-
 
