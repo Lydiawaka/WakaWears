@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { FiMenu } from "react-icons/fi";
 import { FaSearch, FaShoppingBag, FaUser } from "react-icons/fa";
+import Link from 'next/link';
 
 const Navbar = () => {
     
@@ -23,12 +24,12 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className="hidden md:flex space-x-8">
-            <a href="/" className="text-yellow-600 hover:text-white">Home</a>
-            <a href="#" className="text-yellow-600 hover:text-white">Custom</a>
-            <a href="#" className="text-yellow-600 hover:text-white">Fashion</a>
-            <a href="#" className="text-yellow-600 hover:text-white">Beauty</a>
-            <a href="#" className="text-yellow-600 hover:text-white">Art</a>
-            <a href="/discover" className="text-yellow-600 hover:text-white">Discover</a>
+            <Link href="/" className="text-yellow-600 hover:text-white">Home</Link>
+            <Link href="#" className="text-yellow-600 hover:text-white">Custom</Link>
+            <Link href="#" className="text-yellow-600 hover:text-white">Fashion</Link>
+            <Link href="#" className="text-yellow-600 hover:text-white">Beauty</Link>
+            <Link href="#" className="text-yellow-600 hover:text-white">Art</Link>
+            <Link href="/discover" className="text-yellow-600 hover:text-white">Discover</Link>
             <div className="absolute z-[9999] hidden group-hover:block w-[150px] rounded-md bg-white p-2 text-black">
               
             </div>

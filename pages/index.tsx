@@ -9,8 +9,7 @@ import Navbar from "./components/Navbar/page";
 
 
 
-const index = () => {
-
+const Index = () => {
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -37,4 +36,4 @@ const index = () => {
     </div>
   )
 }
-export default index
+export default Index

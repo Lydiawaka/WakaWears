@@ -28,7 +28,7 @@ const ImageList = [
 
 const Hero = () => {
 
-    var setting = {
+    const setting = {
         dots: false,
         arrows: false,
         infinite: true,
