@@ -9,7 +9,7 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "Summer Dress", price: 59.99, image: "/images/self.jpg" },
+  { id: 1, name: "Summer Dress", price: 59.99, image: "/images/product/sbackless.jpeg" },
   { id: 2, name: "Casual Jeans", price: 49.99, image: "/images/product/jeans.jpeg" },
   { id: 3, name: "Elegant Blouse", price: 39.99, image: "/images/product/blouse.jpeg" },
   { id: 4, name: "Fur Jacket", price: 129.99, image: "/images/product/fur.jpeg" },
