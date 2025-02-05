@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +20,7 @@ const Navbar = () => {
     <nav className="bg-black text-white px-4 py-4 relative">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex-shrink-0 group">
+        <Link href="/" className="flex-shrink-0 group">
           <div className="flex flex-col items-start">
              <Image 
               src="/images/logo.png" 
@@ -32,19 +33,19 @@ const Navbar = () => {
             </h1>
             <p className="text-xs tracking-wide">Curated African Art</p>
           </div>
-        </a>
+        </Link>
 
         {/* Navigation Links - Desktop */}
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-yellow-600 hover:text-white transition-colors duration-300 relative group"
             >
               {link.label}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -90,7 +91,7 @@ const Navbar = () => {
       `}>
         <div className="flex flex-col space-y-4 px-4 py-6">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-yellow-600 hover:text-white transition-colors duration-200 flex justify-between items-center"
@@ -98,7 +99,7 @@ const Navbar = () => {
             >
               {link.label}
               <span className="text-white">→</span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

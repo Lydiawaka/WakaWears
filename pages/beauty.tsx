@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Navbar from "./components/Navbar/page"
 import Image from "next/image"
 
