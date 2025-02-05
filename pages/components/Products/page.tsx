@@ -2,6 +2,7 @@ import Image from "next/image"
 import { ShoppingBag } from "lucide-react"
 
 interface Product {
+  View: string | undefined
   id: number
   name: string
   price: number
@@ -9,14 +10,14 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "Summer Dress", price: 59.99, image: "/images/product/sbackless.jpeg" },
-  { id: 2, name: "Casual Jeans", price: 49.99, image: "/images/product/jeans.jpeg" },
-  { id: 3, name: "Elegant Blouse", price: 39.99, image: "/images/product/blouse.jpeg" },
-  { id: 4, name: "Fur Jacket", price: 129.99, image: "/images/product/fur.jpeg" },
-  { id: 5, name: "Satin Skirt", price: 34.99, image: "/images/product/satin.jpeg" },
-  { id: 6, name: "Classic T-Shirt", price: 19.99, image: "/images/shirt01.jpeg" },
-  { id: 6, name: "Lili Bag", price: 19.99, image: "/images/product/lilibag.jpg" },
-  { id: 6, name: "Brush & necklace", price: 20.00, image: "/images/product/brushnc.jpg" },
+  { id: 1, name: "Summer Dress", price: 19.99, image: "/images/product/sbackless.jpeg", View: "/custom" },
+  { id: 2, name: "Casual Jeans", price: 29.99, image: "/images/product/jeans.jpeg", View: "/fashion" },
+  { id: 3, name: "Elegant Blouse", price: 39.99, image: "/images/product/blouse.jpeg", View: "/custom" },
+  { id: 4, name: "Fur Jacket", price: 59.99, image: "/images/product/fur.jpeg", View: "/fashion" },
+  { id: 5, name: "Satin Skirt", price: 18.99, image: "/images/product/satin.jpeg", View: "/art" },
+  { id: 6, name: "Classic T-Shirt", price: 19.99, image: "/images/Art/btwo.jpeg", View: "/art" },
+  { id: 6, name: "Lili Bag", price: 19.99, image: "/images/product/lilibag.jpg", View: "/fashion" },
+  { id: 6, name: "Brush & necklace", price: 20.00, image: "/images/product/brushnc.jpg", View: "/art" },
 ]
 
 export default function Products() {
@@ -39,7 +40,7 @@ export default function Products() {
             <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               <button className="bg-white text-black px-4 py-2 rounded-full font-semibold flex items-center space-x-2 hover:bg-gray-200 transition-colors duration-300">
                 <ShoppingBag size={20} />
-                <span>Quick View</span>
+                <a href={product.View}>Quick View</a>
               </button>
             </div>
             <div className="p-4 bg-white">
