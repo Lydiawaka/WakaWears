@@ -49,58 +49,61 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Icons */}
-        <div className="flex items-center space-x-6">
-          <button className="hover:text-yellow-600 transition-colors duration-300">
-            <Search className="w-5 h-5" />
-          </button>
-          <button 
-            className="md:hidden hover:text-yellow-600 transition-colors duration-300"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </button>
-          <button className="hover:text-yellow-600 transition-colors duration-300">
-            <ShoppingBag className="w-5 h-5" />
-          </button>
-          <button className="hover:text-yellow-600 transition-colors duration-300">
-            <User className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu - Updated Style */}
-      <div className={`
-        md:hidden
-        absolute
-        top-full
-        left-0
-        right-0
-        bg-black
-        border-t
-        border-gray-800
-        transition-all
-        duration-300
-        ease-in-out
-        ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible h-0'}
-      `}>
-        <div className="flex flex-col space-y-4 px-4 py-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-yellow-600 hover:text-white transition-colors duration-200 flex justify-between items-center"
-              onClick={() => setIsMenuOpen(false)}
+        <div className="relative">
+          {/* Icons */}
+          <div className="flex items-center space-x-6">
+            <button className="hover:text-yellow-600 transition-colors duration-300">
+              <Search className="w-5 h-5" />
+            </button>
+            <button 
+              className="md:hidden hover:text-yellow-600 transition-colors duration-300"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
             >
-              {link.label}
-              <span className="text-white">→</span>
-            </Link>
-          ))}
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+            <button className="hover:text-yellow-600 transition-colors duration-300">
+              <ShoppingBag className="w-5 h-5" />
+            </button>
+            <button className="hover:text-yellow-600 transition-colors duration-300">
+              <User className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu - Updated Style */}
+        <div className={`
+          md:hidden
+          absolute
+          top-full
+          left-0
+          right-0
+          bg-black
+          border-t
+          border-gray-800
+          transition-all
+          duration-300
+          ease-in-out
+          z-50
+          ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible h-0'}
+        `}>
+          <div className="flex flex-col space-y-4 px-4 py-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-yellow-600 hover:text-white transition-colors duration-200 flex justify-between items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+                <span className="text-white">→</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </nav>

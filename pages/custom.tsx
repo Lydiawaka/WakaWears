@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import Navbar from "./components/Navbar/page"
 import Footer from "./components/Footer/page"
 
+
 const dressFields = [
   { name: "bust", label: "Bust" },
   { name: "waist", label: "Waist" },
@@ -16,20 +17,24 @@ const dressFields = [
 export default function DressForm() {
   
 
+
+
   return (
     <div >
         <Navbar />
+
         
      <div className="grid md:grid-cols-2 gap-8">
         <div className="px-12 pt-8">
             <Image
-            src="/images/product/redsatin.jpeg"
+            src="/images/product/cst.jpeg"
             alt="Dress Measurements"
             width={400}
             height={600}
             className="rounded-lg"
             />
         </div>
+        
         <form  className="space-y-4">
       {dressFields.map((field) => (
         <div key={field.name}>
@@ -44,6 +49,14 @@ export default function DressForm() {
           />
         </div>
       ))}
+      <div>
+        <h1>Add Image</h1>
+        <input
+              type="file"
+              accept="image/*"
+              className="mt-4 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+            />
+      </div>
       <Button type="submit">Submit Measurements</Button>
     </form>
       </div>
