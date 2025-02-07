@@ -10,20 +10,17 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "Summer Dress", price: 19.99, image: "/images/product/sbackless.jpeg", View: "/custom" },
+  { id: 1, name: "Satin Skirt", price: 19.99, image: "/images/product/satin.jpeg", View: "/custom" },
   { id: 2, name: "Casual Jeans", price: 29.99, image: "/images/product/jeans.jpeg", View: "/fashion" },
-  { id: 3, name: "Elegant Blouse", price: 39.99, image: "/images/product/blouse.jpeg", View: "/custom" },
-  { id: 4, name: "Fur Jacket", price: 59.99, image: "/images/product/fur.jpeg", View: "/fashion" },
-  { id: 5, name: "Satin Skirt", price: 18.99, image: "/images/product/satin.jpeg", View: "/art" },
-  { id: 6, name: "Paint Art", price: 19.99, image: "/images/Art/btwo.jpeg", View: "/art" },
-  { id: 6, name: "Lili Bag", price: 19.99, image: "/images/product/lilibag.jpg", View: "/fashion" },
-  { id: 6, name: "Brush & necklace", price: 20.00, image: "/images/product/brushnc.jpg", View: "/art" },
+  { id: 3, name: "Satin tops", price: 39.99, image: "/images/product/blouse.jpeg", View: "/custom" },
+  { id: 4, name: "Fur Jackets", price: 59.99, image: "/images/product/fur.jpeg", View: "/fashion" },
+ 
 ]
 
-export default function Products() {
+export default function BestProducts() {
   return (
-    <section className="container mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold text-center mb-8">Featured Products</h2>
+    <section className="container mx-auto px-4 py-8">
+      <h2 className="text-3xl font-bold text-center mb-8">Best Products </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {products.map((product) => (
           <div
@@ -43,10 +40,13 @@ export default function Products() {
                 <a href={product.View}>Quick View</a>
               </button>
             </div>
-            <div className="p-4 bg-white">
-              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-              <p className="text-gray-600">${product.price.toFixed(2)}</p>
+            <div className="flex flex-col justify-end ">
+              <div className="p-4 bg-white">
+                <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+                <p className="text-gray-600 ">${product.price.toFixed(2)}</p>
+              </div>
             </div>
+            
           </div>
         ))}
       </div>
