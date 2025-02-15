@@ -1,12 +1,12 @@
 "use client"
 import Footer from "./components/Footer/page";
-import Products from "./components/ProductsGrid/page";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import Navbar from "./components/Navbar/page";
 import Hero from "./components/Hero/page";
 import BestProducts from "./components/BestProducts/page";
+import ProductGrid from "./components/ProductGrid/page";
 
 
 
@@ -31,7 +31,8 @@ const Index = () => {
 
       {/* Hero Section */}
       <Hero/>
-      <Products />
+      <ProductGrid />
+      
       <BestProducts />
 
       <Footer />

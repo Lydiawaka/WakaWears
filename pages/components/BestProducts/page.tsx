@@ -10,10 +10,10 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "Satin Skirt", price: 19.99, image: "/images/product/satin.jpeg", View: "/custom" },
-  { id: 2, name: "Casual Jeans", price: 29.99, image: "/images/product/jeans.jpeg", View: "/fashion" },
-  { id: 3, name: "Satin tops", price: 39.99, image: "/images/product/blouse.jpeg", View: "/custom" },
-  { id: 4, name: "Fur Jackets", price: 59.99, image: "/images/product/fur.jpeg", View: "/fashion" },
+  { id: 1, name: "Satin Skirt", price: 1850, image: "/images/product/satin.jpeg", View: "/custom" },
+  { id: 2, name: "Casual Jeans", price: 2950, image: "/images/product/jeans.jpeg", View: "/fashion" },
+  { id: 3, name: "Satin tops", price: 3500, image: "/images/product/blouse.jpeg", View: "/custom" },
+  { id: 4, name: "Fur Jackets", price: 5900, image: "/images/product/fur.jpeg", View: "/fashion" },
  
 ]
 
@@ -43,7 +43,7 @@ export default function BestProducts() {
             <div className="flex flex-col justify-end ">
               <div className="p-4 bg-white">
                 <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-                <p className="text-gray-600 ">${product.price.toFixed(2)}</p>
+                <p className="text-gray-600 ">Ksh{product.price.toFixed(2)}</p>
               </div>
             </div>
             

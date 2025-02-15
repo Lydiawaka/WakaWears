@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const ProductGrid = () => {
   const products = [
@@ -35,9 +36,11 @@ const ProductGrid = () => {
         {products.map((product) => (
           <div key={product.id} className="flex flex-col items-center">
             <div className="relative w-full aspect-square mb-4 overflow-hidden bg-gray-100 rounded-lg">
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
+                width={300}
+                height={400}
                 className="object-cover w-full h-full"
               />
             </div>
