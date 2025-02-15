@@ -2,7 +2,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+import Image from 'next/image';
+
 
 
 const products = [
@@ -176,12 +177,8 @@ const products = [
 const ProductDetail = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [selectedImage, setSelectedImage] = useState(0);
-  
-  // Convert id to number and find product, default to first product if not found
+  const [selectedImage, setSelectedImage] = useState(0);  
   const currentProduct = products.find(p => p.id === Number(id)) || products[0];
-
-  // Function to handle navigation to other products
   const navigateToProduct = (productId: number) => {
     router.push(`/products/${productId}`);
   };
@@ -212,15 +209,17 @@ const ProductDetail = () => {
             {currentProduct.images.map((img, index) => (
               <div 
                 key={index}
-                className={`cursor-pointer border-2 rounded-lg overflow-hidden ${
+                className={`cursor-pointer border-2 rounded-lg overflow-hidden relative h-24 ${
                   selectedImage === index ? 'border-pink-500' : 'border-gray-200'
                 }`}
                 onClick={() => setSelectedImage(index)}
               >
-                <img
+                <Image
                   src={img}
                   alt={`${currentProduct.name} view ${index + 1}`}
-                  className="w-full h-24 object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 25vw"
                 />
               </div>
             ))}
@@ -229,11 +228,14 @@ const ProductDetail = () => {
 
         {/* Main Image */}
         <div className="w-full md:w-1/2">
-          <div className="aspect-square rounded-lg overflow-hidden">
-            <img
+          <div className="aspect-square rounded-lg overflow-hidden relative">
+            <Image
               src={currentProduct.images[selectedImage]}
-              alt={currentProduct.name}             
-              className="w-full h-full object-cover"
+              alt={currentProduct.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
             />
           </div>
         </div>
@@ -244,7 +246,7 @@ const ProductDetail = () => {
           <p className="text-2xl font-semibold text-pink-600 mt-4">{currentProduct.price}</p>
           <p className="mt-6 text-gray-600">{currentProduct.description}</p>
           
-          <button  className="w-full mt-8 bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200" >
+          <button className="w-full mt-8 bg-pink-500 text-white py-3 px-6 rounded-lg hover:bg-pink-600 transition-colors duration-200">
             Add to Cart
           </button>
           
