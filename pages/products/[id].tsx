@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Navbar from '../components/Navbar/page';
 
 
 
@@ -184,6 +185,8 @@ const ProductDetail = () => {
   };
 
   return (
+    <div>
+      <Navbar />
     <div className="container mx-auto p-4">
       {/* Product Navigation */}
       <div className="mb-8 flex flex-wrap gap-4">
@@ -263,6 +266,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
