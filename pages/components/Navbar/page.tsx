@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
+import { Menu, X, Search, User } from 'lucide-react';
 import { FaShoppingCart } from "react-icons/fa";
 import Image from 'next/image';
 import Link from 'next/link';
