@@ -7,7 +7,7 @@ import Image from 'next/image';
 const products = [
   { id: 4, name: 'Tote Ladies handbags', price: 'Ksh. 4500', image: '/images/Fashion/ladyhandbag.jpeg' },
   { id: 5, name: 'Passport Holder', price: 'Ksh. 1200', image: '/images/Beauty/passport1.jpeg' },
-  { id: 6, name: 'Aloe Vera serum', price: 'Ksh. 1200', image: '/images/Beauty/serum.jpg' },
+  { id: 6, name: 'Coastal Weaves Earings', price: 'Ksh. 1500', image: '/images/Fashion/Coastal.jpg' },
 ];
 
 export default function Fashion() {

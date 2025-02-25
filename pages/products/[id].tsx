@@ -28,7 +28,7 @@ const products = [
   { 
     id: 2, 
     name: 'Natural Coconut Oil', 
-    price: 'Ksh. 150 per 1L', 
+    price: 'Ksh. 1500 per 1L', 
     images: [
       '/images/Beauty/ccnut.jpg',
       '/images/Beauty/cccnut.jpg',
@@ -43,7 +43,7 @@ const products = [
   { 
     id: 3, 
     name: 'Aloe Vera Serum', 
-    price: '$30', 
+    price: 'Ksh. 1200', 
     images: [
       '/images/Beauty/serum.jpg',
     ],
@@ -91,17 +91,17 @@ const products = [
   },
   { 
     id: 6, 
-    name: 'Aloe Vera Serum', 
-    price: 'Ksh. 1200', 
+    name: 'Coastal Weaves Earings', 
+    price: 'Ksh. 1500', 
     images: [
-      '/images/Beauty/serum.jpg',
+      '/images/Fashion/Coastal.jpg',
     
     ],
     description: 'Hydrating serum with pure aloe vera extract.',
     details: [
-      'Natural ingredients',
-      'Suitable for all skin types',
-      'Made in Kenya'
+      'Natural woven fiber design',
+      'Handcrafted rattan triangle earrings',
+      'Lightweight comfortable wear'
     ]
   },
   { 

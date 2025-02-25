@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react';
 import { Menu, X, Search, ShoppingBag, User } from 'lucide-react';
+import { FaShoppingCart } from "react-icons/fa";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -67,7 +68,7 @@ const Navbar = () => {
               )}
             </button>
             <button className="hover:text-yellow-600 transition-colors duration-300">
-              <ShoppingBag className="w-5 h-5" />
+              <FaShoppingCart className="w-5 h-5" />
             </button>
             <button className="hover:text-yellow-600 transition-colors duration-300">
               <User className="w-5 h-5" />
