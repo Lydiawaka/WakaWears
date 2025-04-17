@@ -16,12 +16,12 @@ export default function Fashion() {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Our Products</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((product) => (
           <Link key={product.id} href={`/products/${product.id}`}>
             <div className="border rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow">
               <Image src={product.image} alt={product.name}
-              width={300} height={400} className="w-full h-[400] object-cover" />
+              width={300} height={300} className="w-full h-[300] object-cover" />
               <div className="p-4">
                 <h2 className="text-xl font-semibold">{product.name}</h2>
                 <p className="text-gray-600">{product.price}</p>

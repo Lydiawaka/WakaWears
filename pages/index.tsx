@@ -25,7 +25,7 @@ const Index = () => {
 
 
   return (
-    <div>
+    <div className="">
       {/* Navigation */}
       <Navbar />
 
@@ -34,6 +34,9 @@ const Index = () => {
       <ProductGrid />
       
       <BestProducts />
+
+
+
 
       <Footer />
     </div>

@@ -32,7 +32,7 @@ const ProductGrid = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <div key={product.id} className="flex flex-col items-center">
             <div className="relative w-full aspect-square mb-4 overflow-hidden bg-gray-100 rounded-lg">

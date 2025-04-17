@@ -1,12 +1,44 @@
+// src/components/Navbar/Navbar.tsx
 "use client"
 import { useState } from 'react';
-import { Menu, X, Search, User } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 import { FaShoppingCart } from "react-icons/fa";
 import Image from 'next/image';
 import Link from 'next/link';
+import SearchBar from '../SearchBar';
+import { useCart } from '../../context/CartContext';
+
+// Define interface for search results
+interface SearchResult {
+  id: number;
+  title: string;
+  // Add other properties as needed
+}
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  
+  // Use the cart context
+  const { cartItems, isCartOpen, setIsCartOpen, getTotalItems } = useCart();
+  
+  // Example search function - replace with your actual search logic
+  const handleSearch = async (query: string) => {
+    console.log(`Searching for: ${query}`);
+    
+    // Example: API call to search endpoint
+    try {
+      // Replace with your actual API endpoint
+      const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+      const data = await response.json();
+      setSearchResults(data.results);
+      
+      // Optionally navigate to search results page
+      // router.push(`/search?q=${encodeURIComponent(query)}`);
+    } catch (error) {
+      console.error('Search error:', error);
+    }
+  };
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -53,9 +85,10 @@ const Navbar = () => {
         <div className="relative">
           {/* Icons */}
           <div className="flex items-center space-x-6">
-            <button className="hover:text-yellow-600 transition-colors duration-300">
-              <Search className="w-5 h-5" />
-            </button>
+            {/* Removed the wrapping button */}
+            <div className="hover:text-yellow-600 transition-colors duration-300">
+              <SearchBar onSearch={handleSearch} placeholder="Search site..." />
+            </div>
             <button 
               className="md:hidden hover:text-yellow-600 transition-colors duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -67,8 +100,17 @@ const Navbar = () => {
                 <Menu className="w-5 h-5" />
               )}
             </button>
-            <button className="hover:text-yellow-600 transition-colors duration-300">
+            <button 
+              className="relative hover:text-yellow-600 transition-colors duration-300"
+              onClick={() => setIsCartOpen(!isCartOpen)}
+              aria-label="Shopping cart"
+            >
               <FaShoppingCart className="w-5 h-5" />
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-white text-black rounded-full w-4 h-4 flex items-center justify-center text-xs font-bold">
+                  {getTotalItems()}
+                </span>
+              )}
             </button>
             <button className="hover:text-yellow-600 transition-colors duration-300">
               <User className="w-5 h-5" />
