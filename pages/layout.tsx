@@ -1,6 +1,5 @@
-import { Inter, Montserrat, Oswald } from 'next/font/google'
+import {  Montserrat } from 'next/font/google'
 import { ReactNode } from 'react';
-import ClientProviders from './components/ClientProviders';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -17,9 +16,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${montserrat.variable}`}>
       <body>
-        <ClientProviders>
           {children}
-        </ClientProviders>
       </body>
     </html>
   );
