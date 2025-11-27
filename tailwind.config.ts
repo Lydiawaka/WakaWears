@@ -9,6 +9,11 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			
+  			'montserrat': ['Montserrat', 'system-ui', 'sans-serif'],
+  			'heading': ['Montserrat', 'system-ui', 'sans-serif'], // (Optional) separate for headings
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
