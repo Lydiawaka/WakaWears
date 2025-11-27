@@ -1,14 +1,14 @@
 import React from 'react';
-import Navbar from "./components/Navbar/page";
 import Footer from "./components/Footer/page";
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import Header from './components/header/page';
 
 const discover = () => {
   return (
     <div>
       <div>
-        <Navbar />
+        <Header />
       </div>
       <div>
       <Card className="w-full">
