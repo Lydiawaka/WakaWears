@@ -1,12 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import { Sliders } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function SearchFilter() {
-  const [expandedFilter, setExpandedFilter] = useState<string | null>(null)
-
   const categories = ["All", "Clothing", "Shoes", "Accessories", "Bags", "Activewear"]
   const priceRanges = ["Under ₦5K", "₦5K - ₦15K", "₦15K - ₦30K", "₦30K+"]
 

@@ -2,6 +2,7 @@
 
 import { ChevronRight, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function FeaturedCollections() {
   const collections = [
@@ -55,9 +56,11 @@ export default function FeaturedCollections() {
             className={`group bg-gradient-to-br ${collection.color} rounded-2xl overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-300`}
           >
             <div className="aspect-square overflow-hidden">
-              <img
+              <Image
                 src={collection.image || "/placeholder.svg"}
                 alt={collection.title}
+                width={32}                // required
+                height={32}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>

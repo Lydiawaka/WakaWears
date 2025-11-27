@@ -1,6 +1,7 @@
 "use client"
 
 import { Heart, Star, ShoppingCart } from "lucide-react"
+import Image from "next/image"
 
 export default function ProductShowcase() {
   const products = [
@@ -65,9 +66,11 @@ export default function ProductShowcase() {
           >
             {/* Product image */}
             <div className="relative aspect-[3/4] overflow-hidden bg-muted">
-              <img
+              <Image
                 src={product.image || "/placeholder.svg"}
                 alt={product.name}
+                width={32}                // required
+                height={32}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               {product.badge && (

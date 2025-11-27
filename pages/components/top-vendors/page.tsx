@@ -2,6 +2,7 @@
 
 import { Star, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function TopVendors() {
   const vendors = [
@@ -72,9 +73,11 @@ export default function TopVendors() {
               {/* Avatar */}
               <div className="flex justify-center mb-2">
                 <div className="w-20 h-20 rounded-full border-4 border-card overflow-hidden bg-muted">
-                  <img
+                  <Image
                     src={vendor.image || "/placeholder.svg"}
                     alt={vendor.name}
+                    width={80}                // required
+                    height={80}
                     className="w-full h-full object-cover"
                   />
                 </div>

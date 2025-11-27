@@ -46,10 +46,10 @@ export default function Header() {
               {activeDropdown === "clothing" && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
                   <Link href="/clothing/mens" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">
-                    Men's Clothing
+                    Men&apos;s Clothing
                   </Link>
                   <Link href="/clothing/womens" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">
-                    Women's Clothing
+                    Women&apos;s Clothing
                   </Link>
                   <Link href="/clothing/kids" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-yellow-600">
                     Kids & Babies
@@ -151,8 +151,8 @@ export default function Header() {
                 Clothing <ChevronDown className="w-4 h-4 transform group-open:rotate-180 transition-transform" />
               </summary>
               <div className="ml-4 mt-2 space-y-2">
-                <Link href="/clothing/mens" className="block text-gray-600 hover:text-yellow-600 py-1">Men’s Clothing</Link>
-                <Link href="/clothing/womens" className="block text-gray-600 hover:text-yellow-600 py-1">Women’s Clothing</Link>
+                <Link href="/clothing/mens" className="block text-gray-600 hover:text-yellow-600 py-1">Men&apos;s Clothing</Link>
+                <Link href="/clothing/womens" className="block text-gray-600 hover:text-yellow-600 py-1">Women&apos;s Clothing</Link>
                 <Link href="/clothing/kids" className="block text-gray-600 hover:text-yellow-600 py-1">Kids & Babies</Link>
                 <Link href="/clothing/all" className="block text-gray-600 hover:text-yellow-600 py-1">View All</Link>
               </div>
