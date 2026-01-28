@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from "./components/Footer/page";
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
-import Header from './components/header/page';
+import Header from '../components/header/page';
 
 const discover = () => {
   return (
