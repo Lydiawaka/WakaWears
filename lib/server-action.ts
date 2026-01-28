@@ -3,6 +3,7 @@
 import { prisma } from "./prisma";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
+import { randomUUID } from "crypto";
 
 // Helper types
 type BusinessType = "retail" | "service";
@@ -54,6 +55,7 @@ export async function registerBusiness(
 
     const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
     const verificationExpires = new Date(Date.now() + 15 * 60 * 1000);
+    const userId = randomUUID();
 
     const business = await prisma.business.create({
       data: {
@@ -62,8 +64,10 @@ export async function registerBusiness(
         currency,
         validatedCurrency,
         businessType,
+        ownerId: userId,
         users: {
           create: {
+            id: userId,
             name: ownerName,
             email: ownerEmail.toLowerCase().trim(),
             phone: phoneNumber, // Mapped to 'phone' in schema
