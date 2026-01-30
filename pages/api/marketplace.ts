@@ -1,8 +1,10 @@
-
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '../../lib/prisma';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
@@ -14,33 +16,54 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       subCategory,
       q,
       page = '1',
-      limit = '20',
+      limit = '8',
     } = req.query;
 
-    const pageNumber = Math.max(parseInt(page as string, 10), 1);
-    const limitNumber = Math.min(parseInt(limit as string, 10), 50);
+    // ---- Pagination (hard limits) ----
+    const pageNumber = Math.max(parseInt(page as string, 10) || 1, 1);
+    const limitNumber = Math.min(parseInt(limit as string, 10) || 8, 20);
     const skip = (pageNumber - 1) * limitNumber;
 
+    // ---- Filters ----
     const where: any = {};
 
-    if (category) where.category = category as string;
-    if (gender) where.gender = gender as string;
-    if (subCategory) where.subCategory = subCategory as string;
+    if (typeof category === 'string' && category.trim()) {
+      where.category = category;
+    }
 
+    if (typeof gender === 'string' && gender.trim()) {
+      where.gender = gender;
+    }
+
+    if (typeof subCategory === 'string' && subCategory.trim()) {
+      where.subCategory = subCategory;
+    }
+
+    // ---- Search (SAFE: no large text scan) ----
     if (typeof q === 'string' && q.trim()) {
       where.OR = [
         { title: { contains: q, mode: 'insensitive' } },
-        { description: { contains: q, mode: 'insensitive' } },
         { category: { contains: q, mode: 'insensitive' } },
       ];
     }
 
+    // ---- Database Query (LIGHTWEIGHT SELECT) ----
     const products = await prisma.product.findMany({
       where,
       skip,
-      take: limitNumber + 1, 
+      take: limitNumber + 1, // fetch one extra to detect next page
       orderBy: { createdAt: 'desc' },
-      include: {
+
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        price: true,
+        gender: true,
+        category: true,
+        subCategory: true,
+        createdAt: true,
+
         shop: {
           select: {
             id: true,
@@ -52,13 +75,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
 
+    // ---- Pagination metadata ----
     const hasMore = products.length > limitNumber;
-    const slicedProducts = hasMore ? products.slice(0, limitNumber) : products;
+    const slicedProducts = hasMore
+      ? products.slice(0, limitNumber)
+      : products;
 
-    const serializedProducts = slicedProducts.map((product) => ({
-      ...product,
-      price: product.price ? Number(product.price) : 0,
-    }));
+    // ---- Serialize Decimal fields ----
+    const serializedProducts = slicedProducts.map(
+      ({ price, ...rest }) => ({
+        ...rest,
+        price: price ? Number(price) : 0,
+      })
+    );
 
     return res.status(200).json({
       success: true,
@@ -69,9 +98,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         hasMore,
       },
     });
-
   } catch (error: any) {
-    console.error('Marketplace API error:', error.message);
+    console.error('Marketplace API error:', error);
 
     return res.status(500).json({
       success: false,
