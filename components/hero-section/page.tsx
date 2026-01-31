@@ -1,13 +1,19 @@
 "use client"
 
 import { useRef, useState } from "react"
+import { useRouter } from "next/router"
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+  const router = useRouter()
 
   const handleVideoLoad = () => {
     setIsVideoLoaded(true)
+  }
+
+  const handleShopNow = () => {
+    router.push('/marketplace')
   }
 
   return (
@@ -44,6 +50,14 @@ export default function HeroSection() {
           <p className="text-lg sm:text-xl md:text-2xl text-yellow-900 opacity-90 max-w-2xl mx-auto">
             Fashion Forward. Community Driven.
           </p>
+          <div className="pt-4">
+            <button
+              onClick={handleShopNow}
+              className="px-8 py-3 bg-black text-white text-lg font-semibold rounded-full hover:bg-gray-800 transition-colors transform hover:scale-105 duration-200 shadow-lg"
+            >
+              Shop Collection
+            </button>
+          </div>
         </div>
       </div> 
 
