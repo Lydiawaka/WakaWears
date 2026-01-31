@@ -64,6 +64,8 @@ export default async function handler(
         subCategory: true,
         createdAt: true,
 
+        images: true,
+
         shop: {
           select: {
             id: true,

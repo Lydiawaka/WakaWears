@@ -24,7 +24,7 @@ export default function HeroSection() {
         className={`absolute inset-0 w-full h-full object-cover ${isVideoLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
       >
         <source src="/hero-fashion-video.mp4" type="video/mp4" />
-        <source src="/hero-fashion-video.webm" type="video/webm" />
+        <source src="/hero-fashion-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
